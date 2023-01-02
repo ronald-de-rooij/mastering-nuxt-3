@@ -1,16 +1,17 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nuxi dev",
     "build": "nuxt build",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.2",
-    "@tailwindcss/typography": "^0.5.4",
-    "@vueuse/core": "^9.4.0",
-    "@vueuse/nuxt": "^9.4.0",
-    "nuxt": "3.0.0-rc.12"
+    "@nuxtjs/supabase": "^0.3.0",
+    "@nuxtjs/tailwindcss": "^6.2.0",
+    "@tailwindcss/typography": "^0.5.8",
+    "@vueuse/core": "^9.9.0",
+    "@vueuse/nuxt": "^9.9.0",
+    "nuxt": "3.0.0"
   }
 }
