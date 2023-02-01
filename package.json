@@ -1,10 +1,16 @@
 {
   "private": true,
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "prismaGenerate": "yarn prisma generate",
+    "prismaMigrateDev": "yarn prisma migrate dev",
+    "prismaMigrateDeploy": "yarn prisma migrate deploy"
   },
   "devDependencies": {
     "@nuxtjs/supabase": "^0.3.0",
@@ -12,6 +18,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@vueuse/core": "^9.9.0",
     "@vueuse/nuxt": "^9.9.0",
-    "nuxt": "3.0.0"
+    "nuxt": "3.0.0",
+    "prisma": "^4.9.0"
   }
 }
