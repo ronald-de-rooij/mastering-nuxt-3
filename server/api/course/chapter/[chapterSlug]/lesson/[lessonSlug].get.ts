@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client"
-import protecRoute from "~~/server/utils/protecRoute"
+import protecRoute from "~~/server/utils/protectRoute"
 
 const prisma = new PrismaClient()
 
