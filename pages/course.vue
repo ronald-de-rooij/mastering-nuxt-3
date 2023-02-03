@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div class="flex items-center justify-between w-full mb-4">
+    <div class="mb-4 flex justify-between items-center w-full">
       <h1 class="text-3xl">
-        <span class="font-bold">{{ course.title }}</span>
+        <span class="font-medium">
+          <span class="font-bold">{{ course.title }}</span>
+        </span>
       </h1>
       <UserCard />
     </div>
@@ -13,7 +15,7 @@
       >
         <h3>Chapters</h3>
         <div
-          class="flex flex-col mb-4 space-y-1"
+          class="space-y-1 mb-4 flex flex-col"
           v-for="chapter in course.chapters"
           :key="chapter.slug"
         >
@@ -21,8 +23,8 @@
           <NuxtLink
             v-for="(lesson, index) in chapter.lessons"
             :key="lesson.slug"
-            class="flex flex-row px-4 py-1 -mx-4 space-x-1 font-normal prose-sm no-underline"
-            :to="lesson.path"
+            class="flex flex-row space-x-1 no-underline prose-sm font-normal py-1 px-4 -mx-4"
+            :to="fullPath(chapter.slug, lesson.slug)"
             :class="{
               'text-blue-500': lesson.path === $route.fullPath,
               'text-gray-600': lesson.path !== $route.fullPath,
@@ -44,7 +46,7 @@
             </p>
             <p>
               <button
-                class="px-3 py-1 font-bold text-white bg-gray-500 rounded hover:cursor-pointer"
+                class="hover:cursor-pointer bg-gray-500 text-white font-bold py-1 px-3 rounded"
                 @click="resetError(error)"
               >
                 Reset
@@ -63,7 +65,10 @@
 
   const resetError = async (error) => {
     await navigateTo(firstLesson.path)
-    console.log(error)
     error.value = null
+  }
+
+  const fullPath = (chapter, lesson) => {
+    return `/course/chapter/${chapter}/lesson/${lesson}`
   }
 </script>
